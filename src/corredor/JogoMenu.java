@@ -3,11 +3,11 @@
  */
 package corredor;
 
-import javax.swing.ImageIcon;
+import personagens.Personagem;
 
 /**
  *
- * @author f865
+ * @author gm
  */
 public class JogoMenu extends javax.swing.JFrame {
     
@@ -43,9 +43,11 @@ public class JogoMenu extends javax.swing.JFrame {
         escolhaPersonagem3 = new javax.swing.JRadioButton();
         etTextoDefesa = new javax.swing.JLabel();
         etDefesa = new javax.swing.JLabel();
+        etTextoVida = new javax.swing.JLabel();
+        etVida = new javax.swing.JLabel();
         painelControlos = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botJogar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +72,7 @@ public class JogoMenu extends javax.swing.JFrame {
         etPersonagem3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         grupoPersonagens.add(escolhaPersonagem1);
+        escolhaPersonagem1.setSelected(true);
         escolhaPersonagem1.setText("Guerreiro");
 
         grupoPersonagens.add(escolhaPersonagem2);
@@ -82,6 +85,10 @@ public class JogoMenu extends javax.swing.JFrame {
 
         etDefesa.setText("0");
 
+        etTextoVida.setText("Vida:");
+
+        etVida.setText("0");
+
         javax.swing.GroupLayout painelImagemLayout = new javax.swing.GroupLayout(painelImagem);
         painelImagem.setLayout(painelImagemLayout);
         painelImagemLayout.setHorizontalGroup(
@@ -90,27 +97,32 @@ public class JogoMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etNivel)
-                    .addGroup(painelImagemLayout.createSequentialGroup()
-                        .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etPersonagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(escolhaPersonagem1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etPersonagem2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(escolhaPersonagem2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(escolhaPersonagem3)
-                            .addComponent(etPersonagem3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(etCarateristicas)
-                    .addGroup(painelImagemLayout.createSequentialGroup()
-                        .addComponent(etTextoAtaque)
-                        .addGap(18, 18, 18)
-                        .addComponent(etAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(etTextoDefesa)
-                        .addGap(18, 18, 18)
-                        .addComponent(etDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelImagemLayout.createSequentialGroup()
+                            .addComponent(etTextoVida)
+                            .addGap(18, 18, 18)
+                            .addComponent(etVida, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(etTextoAtaque)
+                            .addGap(18, 18, 18)
+                            .addComponent(etAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(etTextoDefesa)
+                            .addGap(18, 18, 18)
+                            .addComponent(etDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(painelImagemLayout.createSequentialGroup()
+                            .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(etPersonagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(escolhaPersonagem1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(etPersonagem2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(escolhaPersonagem2))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(escolhaPersonagem3)
+                                .addComponent(etPersonagem3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         painelImagemLayout.setVerticalGroup(
@@ -130,19 +142,28 @@ public class JogoMenu extends javax.swing.JFrame {
                     .addComponent(escolhaPersonagem3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(etCarateristicas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etTextoAtaque)
-                    .addComponent(etAtaque)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(etTextoDefesa)
-                        .addComponent(etDefesa)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(etDefesa))
+                    .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etTextoAtaque)
+                        .addComponent(etAtaque)
+                        .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etTextoVida)
+                            .addComponent(etVida))))
+                .addGap(41, 41, 41))
         );
 
         jButton2.setText("jButton2");
 
-        jButton3.setText("jButton3");
+        botJogar.setText("Jogar");
+        botJogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botJogarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelControlosLayout = new javax.swing.GroupLayout(painelControlos);
         painelControlos.setLayout(painelControlosLayout);
@@ -150,9 +171,9 @@ public class JogoMenu extends javax.swing.JFrame {
             painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelControlosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
                 .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(botJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         painelControlosLayout.setVerticalGroup(
@@ -160,8 +181,8 @@ public class JogoMenu extends javax.swing.JFrame {
             .addGroup(painelControlosLayout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)))
+                    .addComponent(botJogar)
+                    .addComponent(jButton2)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,6 +203,14 @@ public class JogoMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botJogarActionPerformed
+        
+        Personagem.criarPersonagem("Guerreiro","Nome");
+        JogoCorredor j = new JogoCorredor();
+        j.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botJogarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +251,7 @@ public class JogoMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botJogar;
     private javax.swing.JRadioButton escolhaPersonagem1;
     private javax.swing.JRadioButton escolhaPersonagem2;
     private javax.swing.JRadioButton escolhaPersonagem3;
@@ -234,9 +264,10 @@ public class JogoMenu extends javax.swing.JFrame {
     private javax.swing.JLabel etPersonagem3;
     private javax.swing.JLabel etTextoAtaque;
     private javax.swing.JLabel etTextoDefesa;
+    private javax.swing.JLabel etTextoVida;
+    private javax.swing.JLabel etVida;
     private javax.swing.ButtonGroup grupoPersonagens;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel painelControlos;
     private javax.swing.JPanel painelImagem;
     // End of variables declaration//GEN-END:variables

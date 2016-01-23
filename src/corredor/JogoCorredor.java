@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author f865
+ * @author gm
  */
 public class JogoCorredor extends javax.swing.JFrame {
     
@@ -44,59 +44,27 @@ public class JogoCorredor extends javax.swing.JFrame {
 
         painelImagem = new javax.swing.JPanel();
         etImagem = new javax.swing.JLabel();
-        etNivel = new javax.swing.JLabel();
-        etPos = new javax.swing.JLabel();
-        etComprimento = new javax.swing.JLabel();
-        etPosTexto = new javax.swing.JLabel();
         painelControlos = new javax.swing.JPanel();
         botMover = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        etPosTexto = new javax.swing.JLabel();
+        etComprimento = new javax.swing.JLabel();
+        etNivel = new javax.swing.JLabel();
+        etPos = new javax.swing.JLabel();
+        etTextoPersonagem = new javax.swing.JLabel();
+        etPersonagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        painelImagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/corredor2.png"))); // NOI18N
         etImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        painelImagem.add(etImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        etNivel.setText("Nível:");
-
-        etPos.setText("1");
-
-        etComprimento.setText("/ 0");
-
-        etPosTexto.setText("Posição:");
-
-        javax.swing.GroupLayout painelImagemLayout = new javax.swing.GroupLayout(painelImagem);
-        painelImagem.setLayout(painelImagemLayout);
-        painelImagemLayout.setHorizontalGroup(
-            painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelImagemLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelImagemLayout.createSequentialGroup()
-                        .addComponent(etNivel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(etPosTexto)
-                        .addGap(18, 18, 18)
-                        .addComponent(etPos)
-                        .addGap(18, 18, 18)
-                        .addComponent(etComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(etImagem))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        painelImagemLayout.setVerticalGroup(
-            painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelImagemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etNivel)
-                    .addComponent(etPos)
-                    .addComponent(etComprimento)
-                    .addComponent(etPosTexto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(etImagem)
-                .addContainerGap())
-        );
+        getContentPane().add(painelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         botMover.setText("Mover");
         botMover.addActionListener(new java.awt.event.ActionListener() {
@@ -109,46 +77,70 @@ public class JogoCorredor extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
 
+        etPosTexto.setText("Posição:");
+
+        etComprimento.setText("/ 0");
+
+        etNivel.setText("Nível:");
+
+        etPos.setText("1");
+
+        etTextoPersonagem.setText("Personagem:");
+
+        etPersonagem.setText("nome (classe)");
+
         javax.swing.GroupLayout painelControlosLayout = new javax.swing.GroupLayout(painelControlos);
         painelControlos.setLayout(painelControlosLayout);
         painelControlosLayout.setHorizontalGroup(
             painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelControlosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botMover, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                    .addGroup(painelControlosLayout.createSequentialGroup()
+                        .addComponent(etNivel)
+                        .addGap(202, 202, 202)
+                        .addComponent(etPosTexto)
+                        .addGap(18, 18, 18)
+                        .addComponent(etPos)
+                        .addGap(18, 18, 18)
+                        .addComponent(etComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelControlosLayout.createSequentialGroup()
+                        .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etTextoPersonagem)
+                            .addComponent(etPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(65, 65, 65)
+                        .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addComponent(botMover))))
         );
         painelControlosLayout.setVerticalGroup(
             painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelControlosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(12, 12, 12)
+                .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etNivel)
+                    .addComponent(etPosTexto)
+                    .addComponent(etPos)
+                    .addComponent(etComprimento))
+                .addGap(12, 12, 12)
+                .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelControlosLayout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addComponent(botMover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(etTextoPersonagem)
+                        .addGap(6, 6, 6)
+                        .addComponent(etPersonagem))
+                    .addGroup(painelControlosLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(painelControlosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(painelControlosLayout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
+                            .addComponent(botMover, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(painelControlos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(painelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(painelControlos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(painelControlos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 284, 400, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,8 +214,10 @@ public class JogoCorredor extends javax.swing.JFrame {
     private javax.swing.JLabel etComprimento;
     private javax.swing.JLabel etImagem;
     private javax.swing.JLabel etNivel;
+    private javax.swing.JLabel etPersonagem;
     private javax.swing.JLabel etPos;
     private javax.swing.JLabel etPosTexto;
+    private javax.swing.JLabel etTextoPersonagem;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel painelControlos;

@@ -43,6 +43,7 @@ public class JogoCorredor extends javax.swing.JFrame {
     private void initComponents() {
 
         painelImagem = new javax.swing.JPanel();
+        etInimigo = new javax.swing.JLabel();
         etImagem = new javax.swing.JLabel();
         painelControlos = new javax.swing.JPanel();
         botMover = new javax.swing.JButton();
@@ -58,13 +59,16 @@ public class JogoCorredor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        painelImagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painelImagem.setLayout(null);
+        painelImagem.add(etInimigo);
+        etInimigo.setBounds(60, 260, 51, 10);
 
         etImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/corredor2.png"))); // NOI18N
         etImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        painelImagem.add(etImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        painelImagem.add(etImagem);
+        etImagem.setBounds(40, 10, 322, 242);
 
-        getContentPane().add(painelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+        getContentPane().add(painelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
         botMover.setText("Mover");
         botMover.addActionListener(new java.awt.event.ActionListener() {
@@ -163,10 +167,13 @@ public class JogoCorredor extends javax.swing.JFrame {
                 ImageIcon imagemIni = new javax.swing.ImageIcon(getClass().getResource("/imagens/"+fichImag));
                 
                 
-                //((ImageIcon) etImagem.getIcon()).getImage().getGraphics().drawImage(imagemIni.getImage(), 0,0,null);
-                etImagem.setIcon(imagemIni);
-               // etImagem.getGraphics().drawImage(imagemIni.getImage(),0,0,null);
-                
+                etInimigo.setIcon(imagemIni);
+                etInimigo.setSize(imagemIni.getIconWidth(), imagemIni.getIconHeight());
+                etInimigo.setLocation(120,120);
+                etInimigo.setVisible(true);
+            }
+            else {
+                etInimigo.setVisible(false);
             }
         }
     }//GEN-LAST:event_botMoverActionPerformed
@@ -213,6 +220,7 @@ public class JogoCorredor extends javax.swing.JFrame {
     private javax.swing.JButton botMover;
     private javax.swing.JLabel etComprimento;
     private javax.swing.JLabel etImagem;
+    private javax.swing.JLabel etInimigo;
     private javax.swing.JLabel etNivel;
     private javax.swing.JLabel etPersonagem;
     private javax.swing.JLabel etPos;

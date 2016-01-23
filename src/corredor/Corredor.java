@@ -34,6 +34,7 @@ public class Corredor {
         Inimigo ini = new Inimigo("Inimigo");
         listaInimigos.add(ini);
         posicoesInimigos[1] = 1;
+        posicoesInimigos[6] = 1;
     }
     public int obterComprimento() {
         return comprimento;

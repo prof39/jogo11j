@@ -170,6 +170,8 @@ public class JogoCorredor extends javax.swing.JFrame {
                 String fichImag = ini.obterNomeImagem();
                 ImageIcon imagemIni = new javax.swing.ImageIcon(getClass().getResource("/imagens/"+fichImag));
                 
+                
+                //((ImageIcon) etImagem.getIcon()).getImage().getGraphics().drawImage(imagemIni.getImage(), 0,0,null);
                 etImagem.setIcon(imagemIni);
                // etImagem.getGraphics().drawImage(imagemIni.getImage(),0,0,null);
                 

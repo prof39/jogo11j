@@ -1,4 +1,4 @@
-package jogo;
+package dados;
 
 public class Dado {
     

@@ -18,6 +18,10 @@ public class Jogo {
         
     }
     
+    public static void m2() {
+        //alteração 2
+    }
+    
     public static void m1() {
         //alteração 1
     }
